@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .converter {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #2ECC71;
+        }
+
+        #convertButton {
+            background-color: #2ECC71;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #convertButton:hover {
+            background-color: #27AE60;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h1>Yards to Square Feet Converter</h1>
+        <form>
+            <label for="yards">Enter Yards:</label>
+            <input type="number" id="yards" step="0.01" placeholder="Enter yards" required>
+            <br>
+            <button type="button" id="convertButton" onclick="convertYardsToSquareFeet()">Convert</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertYardsToSquareFeet() {
+            const yards = parseFloat(document.getElementById("yards").value);
+            if (!isNaN(yards)) {
+                const squareFeet = yards * 9;
+                document.getElementById("result").innerHTML = `${yards} Yards is equal to ${squareFeet} Square Feet`;
+            } else {
+                document.getElementById("result").innerHTML = "Please enter a valid number of yards.";
+            }
+        }
+    </script>
+</body>
+</html>
